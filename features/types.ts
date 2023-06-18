@@ -18,3 +18,20 @@ response?.toUpperCase();
 let message: any = "";
 const uppercasedMessage = (message as string).toUpperCase();
 const canvas = <HTMLCanvasElement>document.getElementById("canvas");
+
+// Custom Types
+type Gender = "feminine" | "masculine" | "nonbinary" | "nonspecified";
+
+type Person = {
+  name: string;
+  age: number;
+  gender: Gender;
+  nationality: string;
+};
+
+const robert: Person = {
+  name: "Robert",
+  age: 15,
+  gender: "masculine",
+  nationality: "Canadian",
+};
