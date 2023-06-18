@@ -26,3 +26,29 @@ function printAnything<T>(collection: T[]): void {
 printAnything<string>(strings);
 /* Type inference */
 printAnything<number>(numbers);
+
+/* Generic constraints */
+class House {
+  print(): void {
+    console.log("I'm a house");
+  }
+}
+
+class Car {
+  print(): void {
+    console.log("I'm a car");
+  }
+}
+
+interface Printable {
+  print(): void;
+}
+
+function printHousesOrCars<T extends Printable>(collection: T[]) {
+  for (let i = 0; i < collection.length; i++) {
+    collection[i].print();
+  }
+}
+
+printHousesOrCars<House>([new House(), new House()]);
+printHousesOrCars<Car>([new Car(), new Car()]);
