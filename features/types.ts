@@ -50,3 +50,22 @@ response?.toUpperCase();
 let message: any = "";
 const uppercasedMessage = (message as string).toUpperCase();
 const canvas = <HTMLCanvasElement>document.getElementById("canvas");
+
+// Custom Types vs Interfaces
+// Interfaces can extend from types and other interfaces
+// Custom types can NOT extend from other types nor interfaces
+interface Child extends Person {
+  mother: string;
+}
+
+const amelie: Child = {
+  mother: "Chloé",
+  name: "Amélie",
+  age: 23,
+  gender: "feminine",
+  nationality: "French",
+};
+
+// Other possible operations
+// Type = Type | Interface
+// Type = Type & Interface
