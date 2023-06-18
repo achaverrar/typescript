@@ -11,6 +11,11 @@ let nothing: undefined = undefined;
 // Built-in objects
 let now: Date = new Date();
 let colors: string[] = ["red", "green", "blue"];
+const person: Object = {
+  name: "John",
+  lastname: "Wick",
+};
+const months: Array<string> = ["January", "May", "August", "December"];
 let myNumbers: number[] = [1, 2, 3];
 let truths: boolean[] = [true, true, false];
 
@@ -56,3 +61,18 @@ for (let i = 0; i < numbers.length; i++) {
     numberAboveZero = numbers[i];
   }
 }
+
+// Any vs Unknown
+let anyVar: any = 20;
+anyVar = "Now I hold a string";
+anyVar = true;
+anyVar = ["now a mixed-type array", 123];
+anyVar.forEach((item) => console.log(item));
+// The following throws no errors:
+// anyVar.asdsfsdf();
+
+let unknownVar: unknown;
+unknownVar = true;
+unknownVar = ["now a mixed-type array", 123];
+// The following throws an error:
+// unknownVar.forEach(item => console.log(item));
