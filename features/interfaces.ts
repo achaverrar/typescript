@@ -1,4 +1,5 @@
 interface Reportable {
+  optionalField?: string;
   summary(): string;
 }
 
@@ -20,9 +21,25 @@ const drink = {
   },
 };
 
+const minimumReportable: Reportable = {
+  summary(): string {
+    return "This object only satisfy the minimum requirements to implement the Reportable interface";
+  },
+};
+
+const fullyReportable: Reportable = {
+  optionalField: "This is the optional field",
+  summary(): string {
+    return "This object implements every field and method in the Reportable interface";
+  },
+};
+
 const printSummary = (item: Reportable): void => {
+  console.log(item.optionalField?.length);
   console.log(item.summary());
 };
 
 printSummary(oldCivic);
 printSummary(drink);
+printSummary(minimumReportable);
+printSummary(fullyReportable);
